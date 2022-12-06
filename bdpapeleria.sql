@@ -75,9 +75,15 @@ SELECT * FROM bdPapeleria.factura;
 SELECT * FROM bdPapeleria.cliente c ;
 SELECT * FROM bdPapeleria.producto p ;
 
+DROP table cliente;
+DROP table producto;
+DROP table factura;
 
-
-
+ALTER TABLE cliente add column  direccion varchar(50);
+ALTER TABLE cliente add column   numeroEmpleado INT;
+ALTER TABLE cliente add column  turno varchar(50);
+ALTER TABLE producto  add column  descripcion varchar(150);
+ALTER TABLE producto  add column  existencia varchar(50);
 
 
 
