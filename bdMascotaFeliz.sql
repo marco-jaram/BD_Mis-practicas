@@ -71,3 +71,14 @@ select venta.nombreProducto, venta.idCliente, venta.total
 from venta 
 inner join productos on venta.idVenta
 inner join cliente on venta.idCliente;
+
+-- CONSULTAS USANDO VIEW
+
+Create view ClienteMarco_correa 
+as 
+select cliente.idCliente as id cliente.nombreCliente as nombre Cliente.apellidoPaterno as apellido Venta.nombreProducto 
+FROM cliente c inner join venta v on c.nombreCliente =v.nombreProducto 
+
+WHERE venta.nombreProducto = "Correa" AND Cliente.nombreCliente = "Marco"
+
+
