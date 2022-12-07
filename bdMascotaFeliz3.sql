@@ -41,9 +41,7 @@ insert into productos  values(0, 'Pista con Pluma', 'Pluma y Pelota con Luz Jugu
 insert into productos  values(0, 'Rascador', 'Rascador Interactivo Con Aves Mediano ',                        "Canuto"  , "Mexico",    135.20 );
 
 
-
 SET FOREIGN_KEY_CHECKS=0;
 select * from cliente;
  select * from productos;
-
  select * from cliente;
