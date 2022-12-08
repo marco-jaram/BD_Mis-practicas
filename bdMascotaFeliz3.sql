@@ -1,3 +1,4 @@
+drop database bdMascotaFeliz3;
 CREATE DATABASE bdMascotaFeliz3;
 USE bdMascotaFeliz3;
 -- EJERCICIOS DE VISTAS / EXCERSICE VIEWS
@@ -7,8 +8,8 @@ CREATE TABLE IF NOT EXISTS bdMascotaFeliz3.cliente (
     nombreCliente VARCHAR(50) UNIQUE,
     apellidoPaterno VARCHAR(40),
     
-    pais VARCHAR(40),
-    sexo VARCHAR(40),
+    paisCliente VARCHAR(40),
+    sexoCliente VARCHAR(40),
     
     Telefono VARCHAR(30)
 );
@@ -41,7 +42,70 @@ insert into productos  values(0, 'Pista con Pluma', 'Pluma y Pelota con Luz Jugu
 insert into productos  values(0, 'Rascador', 'Rascador Interactivo Con Aves Mediano ',                        "Canuto"  , "Mexico",    135.20 );
 
 
-SET FOREIGN_KEY_CHECKS=0;
-select * from cliente;
- select * from productos;
  select * from cliente;
+ select * from productos;
+
+
+
+
+ 
+CREATE VIEW ClienteMujer_Colombiana
+as
+SELECT nombreCliente as Nombre, paisCliente as Pais,sexoCliente 
+FROM cliente c 
+WHERE paisCliente = 'Colombia' AND sexoCliente ="Mujer";
+SELECT * FROM ClienteMujer_Colombiana
+
+CREATE VIEW ClienteHombre_Mexico
+as
+SELECT nombreCliente as Nombre, paisCliente as Pais,sexoCliente 
+FROM cliente c 
+WHERE paisCliente = 'Mexico' AND sexoCliente ="Hombre";
+SELECT * FROM ClienteHombre_Mexico
+
+CREATE VIEW productoOrigen_Marca
+as
+SELECT nombreProductos,marca ,origenPais 
+FROM productos p 
+WHERE marca = "Canuto" AND origenPais  ="mexico";
+SELECT * FROM productoOrigen_Marca
+
+CREATE VIEW productoOrigen_Precio
+as
+SELECT nombreProductos as "Nombre",origenPais as Pais , precio as "Precio > 300"
+FROM productos p 
+WHERE origenPais  ="mexico" AND precio > 300;
+SELECT * FROM productoOrigen_Precio
+
+
+
+CREATE VIEW productoMarca_Precio
+as
+SELECT nombreProductos as "Nombre",marca as "Marca" , precio as "Precio < 200"
+FROM productos p 
+WHERE marca  ="Pet Care" AND precio < 200;
+SELECT * FROM productoMarca_Precio
+
+
+
+
+
+drop view productoOrigen_Precio;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
