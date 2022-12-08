@@ -45,10 +45,28 @@ insert into productos  values(0, 'Rascador', 'Rascador Interactivo Con Aves Medi
  select * from cliente;
  select * from productos;
 
+-- CONSULTAS VIEW
+
+CREATE VIEW ClienteMujer as
+SELECT nombreCliente as Nombre,sexoCliente 
+FROM cliente c  WHERE sexoCliente = 'Mujer' ;
+SELECT * FROM ClienteMujer;
+
+CREATE VIEW ClienteHombre as
+SELECT nombreCliente as Nombre,sexoCliente 
+FROM cliente c  WHERE sexoCliente = 'Hombre' ;
+SELECT * FROM ClienteHombre;
+
+CREATE VIEW productosMarcasMexicanas  as
+SELECT marca
+FROM productos p  WHERE origenPais  = 'Mexico' ;
+SELECT * FROM CproductosMarcasMexicanas;
+
+drop view ClienteMujer;
 
 
 
- 
+
 CREATE VIEW ClienteMujer_Colombiana
 as
 SELECT nombreCliente as Nombre, paisCliente as Pais,sexoCliente 
